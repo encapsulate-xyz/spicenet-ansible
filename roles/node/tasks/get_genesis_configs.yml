@@ -6,6 +6,7 @@
     version: "{{ vars[project][type].configs_version }}"
     force: true
 
+# Remove rollup.toml since we maintain a custom copy for modifications.
 - name: Delete rollup toml file
   ansible.builtin.file:
     path: "{{ tmp_dir }}/{{ project }}/configs/celestia/rollup.toml"
