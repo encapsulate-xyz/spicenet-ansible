@@ -1,0 +1,25 @@
+---
+- name: Clone the repository to /tmp
+  ansible.builtin.git:
+    repo: "{{ vars[project][type].configs_source_url }}"
+    dest: "{{ tmp_dir }}/{{ project }}"
+    version: "{{ vars[project][type].configs_version }}"
+    force: true
+
+# Remove rollup.toml since we maintain a custom copy for modifications.
+- name: Delete rollup toml file
+  ansible.builtin.file:
+    path: "{{ tmp_dir }}/{{ project }}/configs/celestia/rollup.toml"
+    state: absent
+
+- name: Copy Celestia genesis config files
+  ansible.builtin.synchronize:
+    src: "{{ tmp_dir }}/{{ project }}/configs/celestia/"
+    dest: "{{ node_genesis_config_dir }}"
+    delete: yes
+    recursive: yes
+
+- name: Clean up the temporary repository directory
+  ansible.builtin.file:
+    path: "{{ tmp_dir }}/{{ project }}"
+    state: absent
