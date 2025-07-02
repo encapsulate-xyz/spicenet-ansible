@@ -16,25 +16,10 @@ default_node_types:
 
 tmp_dir: /tmp
 
-go:
-  root: /usr/local/go
-  path: "{{ tmp_dir }}/go"
-  module111: "on"
-
-sui:
+spicenet:
   validator:
-    source_url: https://releases.sui.io
+    source_url: https://github.com/pepper-research/testnet-canary/releases/download
+    configs_source_url: https://github.com/pepper-research/testnet-canary
     ports:
-      server_listen_port: 9191
-      metrics_port: 9186
-  fullnode:
-    version: 88888888888
-    source_url: https://releases.sui.io
-    ports:
-      server_listen_port: 9191
-      metrics_port: 9186
-  bridge:
-    source_url: https://releases.sui.io
-    ports:
-      server_listen_port: 9191
+      http_port: 12346
       metrics_port: 9186
