@@ -1,0 +1,13 @@
+---
+node_ufw_rules:
+  - port: "{{ spicenet.node.ports.http_port }}"
+    proto: tcp
+    rule: allow
+    from: any
+    comment: http_port
+
+  - port: "{{ spicenet.node.ports.metrics_port }}"
+    proto: tcp
+    rule: allow
+    from: "{{ monitor_server_dns }}"
+    comment: metrics_port

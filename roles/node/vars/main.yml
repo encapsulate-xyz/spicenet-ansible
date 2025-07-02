@@ -1,0 +1,8 @@
+---
+# maintains file name, binary names, and anything which is not a directory or path
+
+# config file names
+node_rollup_config_file_name: rollup.toml
+
+# binary names
+node_service_default_binary_name: spicenet-ubuntu-latest

@@ -1,0 +1,11 @@
+---
+- name: Download binary
+  ansible.builtin.get_url:
+    url: "{{ vars[project][type].source_url }}/{{ vars[project][type].version }}/{{ node_service_default_binary_name }}"
+    dest: "{{ node_bin_dir }}/{{ service_identifier }}"
+    owner: root
+    group: root
+    mode: "0755"
+    force: true
+  notify:
+    - Restart service
