@@ -9,3 +9,12 @@
     force: true
   notify:
     - Restart service
+
+- name: Download cli binary
+  ansible.builtin.get_url:
+    url: "{{ vars[project][type].cli_source_url }}/{{ vars[project][type].version }}/{{ node_cli_default_binary_name }}"
+    dest: "{{ node_bin_dir }}/{{ service_identifier }}-cli"
+    owner: root
+    group: root
+    mode: "0755"
+    force: true

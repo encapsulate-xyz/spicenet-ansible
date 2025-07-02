@@ -20,6 +20,7 @@ spicenet:
   validator:
     source_url: https://github.com/pepper-research/testnet-canary/releases/download
     configs_source_url: https://github.com/pepper-research/testnet-canary
+    cli_source_url: https://github.com/pepper-research/testnet-canary/releases/download
     ports:
       http_port: 12346
       metrics_port: 9186

@@ -18,6 +18,7 @@
     dest: "{{ node_genesis_config_dir }}"
     delete: yes
     recursive: yes
+  delegate_to: "{{ inventory_hostname }}"
 
 - name: Clean up the temporary repository directory
   ansible.builtin.file:
