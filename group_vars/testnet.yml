@@ -4,3 +4,5 @@ spicenet:
   validator:
     version: v0.1.1
     configs_version: main
+    da_address: "celestia1m8esk4k503g28rd4w8u2g60gfka0awedzdnvsm"
+    telegraf_address: "monitor.encapsulate.xyz:8094"

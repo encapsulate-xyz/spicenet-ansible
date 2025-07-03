@@ -7,8 +7,7 @@ celestia_rpc_address = "{{ vault.testnet.rpc_address }}"
 max_celestia_response_body_size = 104_857_600
 # The maximum time to wait for a response to an RPC query against Celestia node. Defaults to 60 seconds.
 celestia_rpc_timeout_seconds = 60
-signer_address = "celestia1xetdm9tl7c08vatjnujnql2xtm8h34v7hhvgm3"
-
+signer_address = "{{ spicenet.validator.da_address }}"
 
 [storage]
 # The path to the rollup's data directory. Paths that do not begin with `/` are interpreted as relative paths.
@@ -25,7 +24,7 @@ bind_host = "127.0.0.1"
 bind_port = {{ spicenet[type].ports.http_port }}
 
 [monitoring]
-telegraf_address = "127.0.0.1:8094"
+telegraf_address = "{{ spicenet.validator.telegraf_address }}"
 # Defines how many measurements a rollup node will accumulate before sending it to the Telegraf.
 # It is expected from the rollup node to produce metrics all the time,
 # so measurements are buffered by size and not sent by time.
@@ -50,5 +49,5 @@ max_concurrent_blobs = 128
 max_allowed_node_distance_behind = 5
 rollup_address = "sov1lxugrxlk5xxyxsqq503dkhn2nq9yzzaply789q2jkxeryq6lamt"
 # DA address of this sequencer. Should match address of connected bridge/full node.
-da_address = "celestia1xetdm9tl7c08vatjnujnql2xtm8h34v7hhvgm3"
+da_address = "{{ spicenet.validator.da_address }}"
 [sequencer.preferred]
